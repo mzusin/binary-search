@@ -9,7 +9,7 @@ export const binarySearchRecursive = (nums: number[], target: number) : number =
         const middle = start + Math.ceil((end - start)/2);
         if(nums[middle] === target) return middle;
 
-        return nums[middle] < target ? helper(middle + 1, end) : helper(end, middle - 1);
+        return nums[middle] < target ? helper(middle + 1, end) : helper(start, middle - 1);
     };
 
     return helper(0, n - 1);
