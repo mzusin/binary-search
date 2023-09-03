@@ -38,5 +38,9 @@ export const binarySearchIterative = (nums: number[], target: number) : number =
         }
     }
 
+    // At this point, 'start' index is the index where
+    // the target value would be if it were inserted in order.
+    // The solution for below problem is: `return start;` instead of `return -1;`
+    // https://leetcode.com/problems/search-insert-position/description/
     return -1;
 };
