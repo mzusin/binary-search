@@ -8,6 +8,8 @@
 
 ## Functions
 - binarySearchRecursive: (nums: number[], target: number) => number;
+- binarySearchRecursiveLeftMost: (nums: number[], target: number) => number;
+- binarySearchRecursiveRightMost: (nums: number[], target: number) => number;
 - binarySearchIterative: (nums: number[], target: number) => number;
 - binarySearchIterativeLeftMost: (nums: number[], target: number) => number;
 - binarySearchIterativeRightMost: (nums: number[], target: number) => number;

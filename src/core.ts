@@ -6,13 +6,59 @@ export const binarySearchRecursive = (nums: number[], target: number) : number =
     const helper = (start: number, end: number) : number => {
         if(start > end) return -1;
 
-        const middle = start + Math.ceil((end - start)/2);
+        const middle = start + Math.floor((end - start)/2);
         if(nums[middle] === target) return middle;
 
         return nums[middle] < target ? helper(middle + 1, end) : helper(start, middle - 1);
     };
 
     return helper(0, n - 1);
+};
+
+export const binarySearchRecursiveLeftMost = (nums: number[], target: number) : number => {
+
+    const n = nums.length;
+    if(n <= 0) return -1;
+
+    const helper = (start: number, end: number, leftmostIndex: number) : number => {
+        if(start > end) return leftmostIndex;
+
+        const middle = start + Math.floor((end - start)/2);
+        if(nums[middle] === target) {
+
+            // Update leftmostIndex to the current middle index
+            leftmostIndex = middle;
+
+            return helper(start, middle - 1, leftmostIndex);
+        }
+
+        return nums[middle] < target ? helper(middle + 1, end, leftmostIndex) : helper(start, middle - 1, leftmostIndex);
+    };
+
+    return helper(0, n - 1, -1); // Initialize leftmostIndex to -1
+};
+
+export const binarySearchRecursiveRightMost = (nums: number[], target: number) : number => {
+
+    const n = nums.length;
+    if(n <= 0) return -1;
+
+    const helper = (start: number, end: number, rightmostIndex: number) : number => {
+        if(start > end) return rightmostIndex;
+
+        const middle = start + Math.floor((end - start)/2);
+        if(nums[middle] === target) {
+
+            // Update rightmostIndex to the current middle index
+            rightmostIndex = middle;
+
+            return helper(middle + 1, end, rightmostIndex);
+        }
+
+        return nums[middle] < target ? helper(middle + 1, end, rightmostIndex) : helper(start, middle - 1, rightmostIndex);
+    };
+
+    return helper(0, n - 1, -1); // Initialize rightmostIndex to -1
 };
 
 export const binarySearchIterative = (nums: number[], target: number) : number => {
