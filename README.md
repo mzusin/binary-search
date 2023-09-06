@@ -6,6 +6,11 @@
 - Best complexity: O(1)
 - Space complexity: O(1)
 
+## Functions
+- binarySearchRecursive: (nums: number[], target: number) => number;
+- binarySearchIterative: (nums: number[], target: number) => number;
+- binarySearchIterativeLeftMost: (nums: number[], target: number) => number;
+
 ## How to identify binary search problems
 - The input data is sorted or partially sorted.
 - The problem requires searching for a specific value or condition. You have to find some target (index, value, first of something, last of something).
