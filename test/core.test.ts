@@ -1,4 +1,4 @@
-import { binarySearchRecursive, binarySearchIterative, binarySearchIterativeLeftMost } from '../src/core';
+import { binarySearchRecursive, binarySearchIterative, binarySearchIterativeLeftMost, binarySearchIterativeRightMost } from '../src/core';
 
 describe('Core', () => {
 
@@ -125,6 +125,77 @@ describe('Core', () => {
             const nums = [5];
             const target = 5;
             const result = binarySearchIterativeLeftMost(nums, target);
+            expect(result).toBe(0); // The only element in the array is the target
+        });
+    });
+
+    describe('binarySearchIterativeRightMost()', () => {
+        it('should return the index of the target element in a sorted array', () => {
+            const nums = [1, 2, 3, 4, 5, 6, 7];
+            expect(binarySearchIterativeRightMost(nums, 3)).toEqual(2);
+            expect(binarySearchIterativeRightMost(nums, 6)).toEqual(5);
+        });
+
+        it('should return -1 when the target element is not found in the array', () => {
+            const nums = [1, 2, 3, 4, 5, 6, 7];
+            expect(binarySearchIterativeRightMost(nums, 8)).toEqual(-1);
+            expect(binarySearchIterativeRightMost(nums, 0)).toEqual(-1);
+        });
+
+        it('should handle an empty array and return -1', () => {
+            const nums: number[] = [];
+            expect(binarySearchIterativeRightMost(nums, 3)).toEqual(-1);
+        });
+
+        it('should handle a single-element array', () => {
+            const nums = [1];
+            expect(binarySearchIterativeRightMost(nums, 1)).toEqual(0);
+            expect(binarySearchIterativeRightMost(nums, 2)).toEqual(-1);
+        });
+
+        it('should handle an array with duplicate elements', () => {
+            const nums = [1, 2, 3, 3, 4, 5, 6, 6];
+            expect(binarySearchIterativeRightMost(nums, 3)).toEqual(3);
+            expect(binarySearchIterativeRightMost(nums, 6)).toEqual(7);
+        });
+
+        // Test case 1: Duplicates present, target found on the leftmost side
+        it('should return the leftmost index when duplicates are present and target found on the left', () => {
+            const nums = [1, 2, 2, 2, 3, 4, 5];
+            const target = 2;
+            const result = binarySearchIterativeRightMost(nums, target);
+            expect(result).toBe(3);
+        });
+
+        // Test case 2: Duplicates present, target found on the right side
+        it('should return the leftmost index when duplicates are present and target found on the right', () => {
+            const nums = [1, 2, 2, 2, 3, 4, 5];
+            const target = 3;
+            const result = binarySearchIterativeRightMost(nums, target);
+            expect(result).toBe(4); // The leftmost index of 3 in the array is 4
+        });
+
+        // Test case 3: Duplicates present, target not found
+        it('should return -1 when duplicates are present and target is not found', () => {
+            const nums = [1, 2, 2, 2, 3, 4, 5];
+            const target = 6;
+            const result = binarySearchIterativeRightMost(nums, target);
+            expect(result).toBe(-1); // Target 6 is not present in the array
+        });
+
+        // Test case 4: Empty array
+        it('should return -1 when the input array is empty', () => {
+            const nums: number[] = [];
+            const target = 2;
+            const result = binarySearchIterativeRightMost(nums, target);
+            expect(result).toBe(-1); // Empty array, so the target is not present
+        });
+
+        // Test case 5: Array with a single element (target)
+        it('should return 0 when the input array has a single element matching the target', () => {
+            const nums = [5];
+            const target = 5;
+            const result = binarySearchIterativeRightMost(nums, target);
             expect(result).toBe(0); // The only element in the array is the target
         });
     });
