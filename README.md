@@ -13,6 +13,8 @@
 - binarySearchIterative: (nums: number[], target: number) => number;
 - binarySearchIterativeLeftMost: (nums: number[], target: number) => number;
 - binarySearchIterativeRightMost: (nums: number[], target: number) => number;
+- findFirstNonNegativeNumberIterative: (nums: number[]) => number;
+- countNegativeNumbersIterative: (nums: number[]) => number;
 
 ## How to identify binary search problems
 - The input data is sorted or partially sorted.

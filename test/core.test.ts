@@ -3,7 +3,8 @@ import {
     binarySearchRecursiveLeftMost,
     binarySearchIterative,
     binarySearchIterativeLeftMost,
-    binarySearchIterativeRightMost, binarySearchRecursiveRightMost,
+    binarySearchIterativeRightMost,
+    binarySearchRecursiveRightMost,
 } from '../src/core';
 
 describe('Core', () => {
@@ -31,12 +32,6 @@ describe('Core', () => {
             expect(binarySearchRecursive(nums, 1)).toEqual(0);
             expect(binarySearchRecursive(nums, 2)).toEqual(-1);
         });
-
-        /*it('should handle an array with duplicate elements', () => {
-            const nums = [1, 2, 3, 3, 4, 5, 6];
-            expect(binarySearchRecursive(nums, 3)).toEqual(2);
-            expect(binarySearchRecursive(nums, 6)).toEqual(6);
-        });*/
     });
 
     describe('binarySearchRecursiveLeftMost()', () => {
