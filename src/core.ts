@@ -85,6 +85,9 @@ export const binarySearchIterative = (nums: number[], target: number) : number =
     // the target value would be if it were inserted in order.
     // The solution for below problem is: `return start;` instead of `return -1;`
     // https://leetcode.com/problems/search-insert-position/description/
+
+    // At this point, 'end' index is the index that
+    // contains the smallest number in array that is greater than target.
     return -1;
 };
 
