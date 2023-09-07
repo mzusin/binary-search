@@ -88,6 +88,7 @@ export const binarySearchIterative = (nums: number[], target: number) : number =
 
     // At this point, 'end' index is the index that
     // contains the smallest number in array that is greater than target.
+    // https://leetcode.com/problems/find-smallest-letter-greater-than-target/description/
     return -1;
 };
 
